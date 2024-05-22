@@ -10,20 +10,13 @@ let person = {
     pincode: 631658,
   },
   getBirthyear: function () {
-    let currentYear = new Date().getFullYear();
-    console.log(currentYear); //2024
-    let birthYear = currentYear - this.age;
-    return `myBirthYear::: ${birthYear}`; //1994
+    return new Date().getFullYear() - this.age;
   },
   getFullAddress() {
-    let fullAddress = "";
-    for (let key in this.address) {
-      fullAddress += this.address[key] + ", ";
-    }
-    console.log(fullAddress);
-    return `fullAddress::: ${fullAddress}`;
+    let { house, street, city, state, country, pincode } = this.address;
+    return `${house},${street},${city},${state},${country}-${pincode}`;
   },
 };
 
-console.log(person.getBirthyear());
-console.log(person.getFullAddress());
+console.log(person.getBirthyear()); //1994
+console.log(person.getFullAddress()); //547,south,cbe,TamilNadu,India-631658
